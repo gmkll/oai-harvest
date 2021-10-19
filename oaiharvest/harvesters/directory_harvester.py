@@ -53,14 +53,14 @@ class DirectoryOAIHarvester(OAIHarvester):
                 if self.respectDeletions:
                     logger.debug(
                         "Respecting server request to delete record {0}.{1}".format(
-                            record.identifier, metadataPrefix
+                            record.header.identifier(), metadataPrefix
                         )
                     )
                     self.store.delete(record, metadataPrefix)
                 else:
                     logger.debug(
                         "Ignoring server request to delete file {0}.{1}".format(
-                            record.identifier, metadataPrefix
+                            record.header.identifier(), metadataPrefix
                         )
                     )
         else:
