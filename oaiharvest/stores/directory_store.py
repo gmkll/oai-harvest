@@ -28,7 +28,8 @@ class DirectoryRecordStore(object):
             self.logger.info("*** No metadata for {0}.{1}".format(record.header.identifier(), metadataPrefix) )
             return
         if self.resolveEntities:
-            result = BeautifulSoup(str(record.metadata),"html.parser")
+            # not using html.parser as this results i lowercase elements
+            result = BeautifulSoup(str(record.metadata),"xml")
             result = str(result)
         else:
             result = record.metadata
