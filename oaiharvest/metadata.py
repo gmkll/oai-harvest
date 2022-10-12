@@ -46,7 +46,7 @@ class XMLMetadataReader(object):
         # Six call fixes 'sequence item 0: expected str instance, bytes found'
         return "\n".join(
             [
-                six.text_type(tostring(rec_element, method="xml", pretty_print=True))
+                six.text_type(tostring(rec_element, method="xml", encoding='UTF-8', pretty_print=True))
                 for rec_element in metadata_element
             ]
         )
